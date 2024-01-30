@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderLinesReceipt" t-inherit="point_of_sale.OrderLinesReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('responsive-price')]" position="before">
+            <t t-if='isSimple(line)'>
+                <div style="font-weight:bold;">
+                    <t t-esc='line.lot_id'/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension">
+        <xpath expr="//div[@class='product-content']" position="after">
+            <span t-attf-class="quantity-count {{props.product.qty_available lte env.pos.config.minimum_stock_alert ? 'warn' : 'normal'}}">
+                <t t-esc="props.product.qty_available"/>
+            </span>
+
+        </xpath>
+    </t>
+</templates>

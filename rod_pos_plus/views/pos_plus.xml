@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="rod_plus" inherit_id="point_of_sale.assets_common">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/rod_pos_plus/static/src/js/ProductItem.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
