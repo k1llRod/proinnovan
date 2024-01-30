@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_saledetails_inh" inherit_id="point_of_sale.report_saledetails">
+<!--            <xpath expr="//t/t[2]/t/div/strong" position="after">-->
+<!--                <h1>Test</h1>-->
+<!--                <h3><t t-esc="user_id_name" /></h3>-->
+<!--            </xpath>-->
+            <xpath expr="//div[@class='text-center']" position="inside">
+                <div><strong><t t-esc="user_id_name" /></strong></div>
+                <div>Asistencia: <t t-esc="print_register"/></div>
+            </xpath>
+            <xpath expr="//div[@class='text-center']/strong" position="replace">
+                <t t-esc="date_start" t-options="{'widget': 'date'}"/> - <t t-esc="date_stop" t-options="{'widget': 'date'}"/>
+            </xpath>
+            <xpath expr="//div[@class='page']/table/thead/tr/th[3]" position="after">
+                <th>Precio original</th>
+            </xpath>
+            <xpath expr="//div[@class='page']/table/thead/tr/th[3]" position="replace">
+                <th>Precio de unidad</th>
+            </xpath>
+            <xpath expr="//div[@class='page']/table/tbody/tr/td[3]" position="after">
+                <td>
+                    <t t-if="line['price_unit'] !=  line['price_unit_original']">
+                        <t t-esc="line['price_unit_original']" />
+                    </t>
+                </td>
+            </xpath>
+        </template>
+    </data>
+</odoo>
